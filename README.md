@@ -5,3 +5,4 @@ Workflow:
  - Create layout for different pages
  - Create providers
  - Design homepage
+ - Design login and register pages and add firebase authentication
