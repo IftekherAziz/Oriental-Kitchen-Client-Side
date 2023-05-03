@@ -1,3 +1,4 @@
-react tippy installed
-6 password in registration
-error and success message in login
+Workflow: 
+ - Header and footer done
+ - Setup Firebase configuration and environment
+ - Setup Routes
