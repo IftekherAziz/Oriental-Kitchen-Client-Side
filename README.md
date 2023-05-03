@@ -1,11 +1,13 @@
-# Live link: 
+# Live link: https://oriental-kitchen-7afb5.web.app/
 
 # Workflow: 
- - Header and footer done
+ - Header and Footer Design
  - Setup Firebase configuration and environment
- - Setup Routes
+ - Setup Public Routes & Private Routes
  - Create layout for different pages
- - Create providers
- - Design homepage
- - Design login and register pages and add firebase authentication
- - Deploy to firebase hoting
+ - Create Auth Provider & Set 
+ - Design Homepage 
+ - Design Blog Page
+ - Design Login and Register Pages and add Email Authentication
+ - Add Google & Github Authentication
+ - Deploy to Firebase Hosting

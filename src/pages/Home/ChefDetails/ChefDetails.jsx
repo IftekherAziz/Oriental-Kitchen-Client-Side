@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import Lottie from "lottie-react";
 import cooking from "../../../assets/animation/cooking.json";
 import ChefRecipes from "./ChefRecipes";
-import { FaBriefcase } from "react-icons/fa";
+
 
 const ChefDetails = () => {
   const chef = useLoaderData();
@@ -14,9 +14,9 @@ const ChefDetails = () => {
     years_of_experience,
     num_of_recipes,
     likes,
-    description,
+    bio,
   } = chef;
-  console.log(chef);
+   console.log(chef);
   return (
     <div className="px-5 md:px-36">
       <div className="p-5 md:p-10">
@@ -32,30 +32,31 @@ const ChefDetails = () => {
           <div>
             <div className="card w-80 md:w-96 bg-base-100 shadow-xl image-full">
               <figure>
-                <img src={chef_picture} alt="Shoes" />
+                <img src={chef_picture} alt="Chef Picture" />
               </figure>
               <div className="card-body">
                 <h2 className="card-title text-3xl text-white">{chef_name}</h2>
                 <div className="flex flex-col">
                   <p className="text-2xl text-white">
-                    <span className="text-pink-200">{years_of_experience}</span>{" "}
-                    years of experience
+                    Years of experience:
+                    <span className="text-pink-200">
+                      {years_of_experience}
+                    </span>{" "}
                   </p>
                   <p className="text-2xl text-white">
+                    Number of recipes:{" "}
                     <span className="text-pink-200">{num_of_recipes}</span>{" "}
-                    Known recipes
                   </p>
                   <p className="text-2xl text-white">
-                    <span className="text-pink-200">{likes}</span> likes
+                    Got Likes: <span className="text-pink-200">{likes}</span>
                   </p>
-                  <p className="text-black mt-5">
-                    <FaBriefcase className="text-2xl text-white mb-2" />
-                    <span className="text-white">{description}</span>
+                  <p className="text-2xl text-white">
+                    Bio: <span className="text-pink-200">{bio}</span>
                   </p>
                 </div>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-secondary">
-                    Check Chefs list
+                  <button className="btn btn-primary">
+                    Check recepies below
                   </button>
                 </div>
               </div>

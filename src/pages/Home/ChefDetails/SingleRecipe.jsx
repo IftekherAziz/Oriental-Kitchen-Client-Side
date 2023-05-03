@@ -33,13 +33,13 @@ const SingleRecipe = ({ recipe, tallCard }) => {
           </div>
           <span className='font-bold'>Cooking method</span>
           <p>{cooking_method}</p>
-          <div className="card-actions justify-end mt-auto">
+          <div className="card-actions justify-center">
             <button
-              className="btn btn-secondary"
+              className="btn btn-primary"
               onClick={handleFavorite}
               disabled={favorite}
             >
-              Make Favorite
+              Make As Favorite
             </button>
           </div>
         </div>

@@ -25,9 +25,9 @@ const Blogs = () => {
     <section>
       {/* Title Section */}
       <div className="">
-        <div className="mx-auto max-w-7xl py-12 px-6 mb-10 ">
+        <div className="mx-auto max-w-7xl pt-10 px-6 mb-10 ">
           <div>
-            <h1 className="font-bold text-xl text-center py-12">Blog Posts</h1>
+            <h1 className="font-bold text-4xl text-center py-4">Blog Posts</h1>
           </div>
         </div>
       </div>
