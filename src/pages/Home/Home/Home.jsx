@@ -1,12 +1,14 @@
 import React from 'react';
-import Banner from './Banner';
 import Chefs from './Chefs';
+import Banner from './Banner';
+import BannerTwo from './BannerTwo';
 
 const Home = () => {
   return (
     <div className='px-5 md:px-36'>
-      <Banner></Banner>
+      <Banner></Banner>    
       <Chefs></Chefs>
+      <BannerTwo></BannerTwo>
     </div>
   );
 };

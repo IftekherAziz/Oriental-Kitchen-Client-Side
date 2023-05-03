@@ -1,111 +1,84 @@
 import React from "react";
-import {
-  FaSearchengin,
-  FaJenkins,
-  FaBreadSlice,
-  FaHandPeace,
-} from "react-icons/fa";
+import bg from "../../../assets/page-bg-1.jpg";
+
 
 const Banner = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 p-5 md:p-10 justify-items-center items-center	">
-      {/* left side */}
-      <div className="px-2 md:px-5">
-        <h2 className="text-1xl md:text-3xl">
-          <span className="text-2xl md:text-3xl text-red-800">Welcome to</span>
-          <span className="underline decoration-base-200 text-2xl md:text-3xl pl-1 md:pl-2 font-bold">
-            Oriental Kitchen
-          </span>
-        </h2>
-        <br />
-        <p className=" text-slate-500">
-          This recipes and chef website is a platform dedicated to providing
-          recipes, cooking tips, and techniques to individuals who are
-          interested in cooking. The website can offer a wide range of recipes,
-          from simple and easy-to-follow dishes to more complex and elaborate
-          meals. The website may also include information on the latest cooking
-          trends, food-related news, and interviews with renowned chefs.
-          <br />
-          On your website, you can showcase recipes of American cuisines and
-          cultures, including appetizers, entrees, desserts, and more. You can
-          also provide detailed cooking instructions, ingredient lists, and tips
-          and tricks for preparing each dish.
-        </p>
-        <br />
-        <div className="text-1xl text-red-800 grid grid-cols-2">
-          <span className="flex gap-2 justify-items-center items-center">
-            <FaSearchengin />
-            Founding year: 2023
-          </span>
-          <span className="flex gap-2 justify-items-center items-center">
-            <FaJenkins />
-            Chefs: 5+
-          </span>
-          <span className="flex gap-2 justify-items-center items-center">
-            <FaBreadSlice />
-            Recipes: 17+
-          </span>
-          <span className="flex gap-2 justify-items-center items-center">
-            <FaHandPeace />
-            Review: 1500+
-          </span>
-        </div>
-      </div>
-      {/* right side */}
-      <div className="sm:order-first">
-        <div className="h-48 md:h-72 carousel carousel-vertical rounded">
-          <div className="carousel-item max-w-screen-lg mx-auto flex justify-center">
-            <img
-              className="max-w-full max-h-full"
-              src="https://i.ibb.co/6RXSKJ0/Beef-Burger.webp"
+    <div className="bg-white">
+      <div className="mx-auto max-w-7xl py-4 sm:px-6 sm:py-8 lg:px-8">
+        <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <svg
+            viewBox="0 0 1024 1024"
+            className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
+            aria-hidden="true"
+          >
+            <circle
+              cx={512}
+              cy={512}
+              r={512}
+              fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
+              fillOpacity="0.7"
             />
+            <defs>
+              <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
+                <stop stopColor="#7775D6" />
+                <stop offset={1} stopColor="#E935C1" />
+              </radialGradient>
+            </defs>
+          </svg>
+          <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Welcome to our Oriental Kitchen!
+            </h2>
+            <p className="mt-6 text-md leading-8 text-gray-300">
+              We suggest an inviting atmosphere where visitors can expect to
+              experience delicious and authentic Asian cuisine. The phrase
+              "Oriental Kitchen" often implies a diverse range of dishes, from
+              Chinese and Japanese to Thai and Korean, prepared with a blend of
+              traditional and modern cooking techniques. This title is likely to
+              attract food enthusiasts who appreciate the rich flavors and
+              vibrant colors of Asian cuisine.
+            </p>
+            <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+              {/*  <a
+                href="#"
+                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                Order Now
+              </a> */}
+              {/* <a
+                href="#"
+                className="text-sm font-semibold leading-6 text-white"
+              >
+                Learn more <span aria-hidden="true">→</span>
+              </a> */}
+              <p
+                href="#"
+                className="text-sm font-semibold leading-6 text-white"
+              >
+                Founded: 2020 <span aria-hidden="true"> →</span>
+              </p>
+              <p
+                href="#"
+                className="text-sm font-semibold leading-6 text-white"
+              >
+                Total Chef : 20 + <span aria-hidden="true"> →</span>
+              </p>
+              <p
+                href="#"
+                className="text-sm font-semibold leading-6 text-white"
+              >
+                Recipes: 27 + <span aria-hidden="true"></span>
+              </p>
+            </div>
           </div>
-          <div className="carousel-item max-w-screen-lg mx-auto flex justify-center">
+          <div className="relative mt-16 h-80 lg:mt-24">
             <img
-              className="max-w-full max-h-full"
-              src="https://i.ibb.co/tLGmDjr/Grilled-Salmon-with-Dill-Butter.jpg"
-            />
-          </div>
-          <div className="carousel-item max-w-screen-lg mx-auto flex justify-center">
-            <img
-              className="max-w-full max-h-full"
-              src="https://i.ibb.co/NTQvPGJ/New-York-Strip-Steak-with-Red-Wine-Sauce.jpg"
-            />
-          </div>
-          <div className="carousel-item max-w-screen-lg mx-auto flex justify-center">
-            <img
-              className="max-w-full max-h-full"
-              src="https://i.ibb.co/BVXdvGJ/Pesto-Pasta-Salad.jpg"
-            />
-          </div>
-          <div className="carousel-item max-w-screen-lg mx-auto flex justify-center">
-            <img
-              className="max-w-full max-h-full"
-              src="https://i.ibb.co/fQB39V1/Barbecue-Pork-Ribs.jpg"
-            />
-          </div>
-          <div className="carousel-item max-w-screen-lg mx-auto flex justify-center">
-            <img
-              className="max-w-full max-h-full"
-              src="https://i.ibb.co/RD9GBDf/Shrimp-Scampi.jpg"
-            />
-          </div>
-          <div className="carousel-item max-w-screen-lg mx-auto flex justify-center">
-            <img
-              className="max-w-full max-h-full"
-              src="https://i.ibb.co/j4d93Cf/Macaroni-and-Cheese.jpg"
-            />
-          </div>
-          <div className="carousel-item max-w-screen-lg mx-auto flex justify-center">
-            <img
-              className="max-w-full max-h-full"
-              src="https://i.ibb.co/Rhv98Hm/Roast-Turkey.jpg"
-            />
-          </div>
-          <div className="carousel-item max-w-screen-lg mx-auto flex justify-center">
-            <img
-              className="max-w-full max-h-full"
-              src="https://i.ibb.co/YNNZqYF/Mac-and-Cheese.jpg"
+              className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
+              src={bg}
+              alt="App screenshot"
+              width={1824}
+              height={1080}
             />
           </div>
         </div>
