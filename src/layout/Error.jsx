@@ -8,7 +8,7 @@ const Error = () => {
   const { error, status } = useRouteError();
   return (
     <>
-     <Header></Header>
+      <Header></Header>
       <section className="flex items-center h-screen p-16 bg-white">
         <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
           <svg
@@ -44,7 +44,7 @@ const Error = () => {
               {error?.message}
             </p>
             <Link to="/" className="px-8 py-3 font-semibold rounded my_btn">
-              Back to homepage
+              <button className="btn btn-primary">Back to homepage</button>
             </Link>
           </div>
         </div>

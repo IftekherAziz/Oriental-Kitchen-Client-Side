@@ -1,7 +1,6 @@
 import React from "react";
 import bg from "../../../assets/page-bg-1.jpg";
 
-
 const Banner = () => {
   return (
     <div className="bg-white">
@@ -32,26 +31,12 @@ const Banner = () => {
             </h2>
             <p className="mt-6 text-md leading-8 text-gray-300">
               We suggest an inviting atmosphere where visitors can expect to
-              experience delicious and authentic Asian cuisine. The phrase
-              "Oriental Kitchen" often implies a diverse range of dishes, from
-              Chinese and Japanese to Thai and Korean, prepared with a blend of
-              traditional and modern cooking techniques. This title is likely to
-              attract food enthusiasts who appreciate the rich flavors and
-              vibrant colors of Asian cuisine.
+              experience delicious and authentic American cuisine. The "Oriental
+              Kitchen" often implies a diverse range of dishes, from Burger,
+              Pizza, Chicken and Beef Steak and many more items prepared with a blend
+              of modern cooking techniques.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-              {/*  <a
-                href="#"
-                className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                Order Now
-              </a> */}
-              {/* <a
-                href="#"
-                className="text-sm font-semibold leading-6 text-white"
-              >
-                Learn more <span aria-hidden="true">→</span>
-              </a> */}
               <p
                 href="#"
                 className="text-sm font-semibold leading-6 text-white"

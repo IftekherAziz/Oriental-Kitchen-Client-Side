@@ -21,10 +21,10 @@ const Chefs = () => {
     <div className="p-5 md:p-10 py-10 md:py-16">
       <div className="text-center mb-12">
         <h2 className="text-1xl md:text-3xl">
-          <span className="underline decoration-base-200 text-4xl md:text-5xl pl-1 md:pl-2 font-bold">
+          <span className="underline decoration-base-200 text-3xl md:text-4xl pl-1 md:pl-2 font-bold">
             Chefs
           </span>
-          <span className="text-4xl md:text-5xl font-bold text-blue-700">
+          <span className="text-3xl md:text-4xl font-bold text-blue-700">
             {" "}
             Listing
           </span>
@@ -33,7 +33,7 @@ const Chefs = () => {
       {chefs.map((chef) => (
         <Chef key={chef.chef_id} chef={chef}></Chef>
       ))}
-      <div className="text-center">
+      <div className="text-center mt-12">
         {more ? (
           <button onClick={() => setMore(!more)} className="btn btn-primary">
             Show Less

@@ -13,17 +13,17 @@ const Chef = ({ chef }) => {
   } = chef;
   return (
     <div>
-      <div className="card lg:card-side bg-base-100 shadow-xl mb-5">
+      <div className="card lg:card-side bg-slate-50 shadow-sm mb-6">
         <figure className="md:h-64 md:w-80">
           <img
             className="h-full w-full object-cover"
             src={chef_picture}
-            alt="Album"
+            alt="Chef Image"
           />
         </figure>
-        <div className="card-body">
-          <h2 className="card-title text-3xl">{chef_name}</h2>
-          <div className="text-red-800 text-1xl md:text-2xl">
+        <div className="card-body pt-10">
+          <h2 className="card-title text-2xl">{chef_name}</h2>
+          <div className="text-gray-600 text-xl md:text-xl">
             <span className="flex gap-2 justify-items-center items-center ">
               <FaHandPeace />
               Review: {likes}
@@ -37,7 +37,7 @@ const Chef = ({ chef }) => {
               Experience: {years_of_experience} years
             </span>
           </div>
-          <div className="card-actions justify-end">
+          <div className="card-actions justify-end ">
             <Link to={`/chef/${chef_id}`}>
               <button className="btn btn-primary">View Recipes</button>
             </Link>
