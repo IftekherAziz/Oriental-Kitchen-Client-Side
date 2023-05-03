@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../providers/AuthProviders';
 
+
 const Register = () => {
   const { createUser, updateUserProfile, googleSignIn, gitHubSignIn } = useContext(AuthContext);
 
@@ -86,7 +87,7 @@ const Register = () => {
             </Link>
           </p>
         </div>
-      </div>
+      </div>      
     </div>
   );
 };

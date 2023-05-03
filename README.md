@@ -1,4 +1,6 @@
-Workflow: 
+# Live link: 
+
+# Workflow: 
  - Header and footer done
  - Setup Firebase configuration and environment
  - Setup Routes
@@ -6,3 +8,4 @@ Workflow:
  - Create providers
  - Design homepage
  - Design login and register pages and add firebase authentication
+ - Deploy to firebase hoting

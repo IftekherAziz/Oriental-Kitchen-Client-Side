@@ -5,7 +5,6 @@ import Footer from '../pages/Shared/Footer';
 import { Outlet } from 'react-router-dom';
 
 const Main = () => {
-  // const { user } = useContext(AuthContext);
   return (
     <>
       <div className='container mx-auto'>
