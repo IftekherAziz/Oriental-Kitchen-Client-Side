@@ -55,12 +55,12 @@ const Header = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/blogs"
+                    to="/blog"
                     className={({ isActive, isPending }) =>
                       isActive ? "font-bold decoration-stone-950" : ""
                     }
                   >
-                    Blogs
+                    Blog
                   </NavLink>
                 </li>
               </ul>
@@ -87,12 +87,12 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to="/blogs"
+                  to="/blog"
                   className={({ isActive, isPending }) =>
                     isActive ? "font-bold decoration-stone-950" : ""
                   }
                 >
-                  Blogs
+                  Blog
                 </NavLink>
               </li>
             </ul>

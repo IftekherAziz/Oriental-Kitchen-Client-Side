@@ -2,9 +2,9 @@ import React from "react";
 // import bg from "../../../assets/page-bg-1.jpg";
 import { CalendarDaysIcon, HandRaisedIcon } from "@heroicons/react/24/outline";
 
-const BannerTwo = () => {
+const Newsletter = () => {
   return (
-    <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+    <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32 mb-10 rounded-md">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
           <div className="max-w-xl lg:max-w-lg">
@@ -60,7 +60,7 @@ const BannerTwo = () => {
               </div>
               <dt className="mt-4 font-semibold text-white">No spam</dt>
               <dd className="mt-2 leading-7 text-gray-400">
-               We do have spam protection, so you will no be spammed by us!
+                We do have spam protection, so you will no be spammed by us!
               </dd>
             </div>
           </dl>
@@ -82,4 +82,4 @@ const BannerTwo = () => {
   );
 };
 
-export default BannerTwo;
+export default Newsletter;
