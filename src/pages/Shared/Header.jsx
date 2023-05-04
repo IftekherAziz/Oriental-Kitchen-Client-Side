@@ -42,7 +42,17 @@ const Header = () => {
               <ul
                 tabIndex={0}
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-              >       
+              >   
+              <li>
+                <NavLink
+                  to="/"
+                  className={({ isActive, isPending }) =>
+                    isActive ? "font-bold decoration-stone-950" : ""
+                  }
+                >
+                  Home
+                </NavLink>
+              </li>    
                 <li>
                   <NavLink
                     to="/blog"
