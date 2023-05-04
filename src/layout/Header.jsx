@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { Tooltip } from "react-tippy";
 import { AuthContext } from "../../providers/AuthProviders";
-import { Tooltip } from "react-tooltip";
-// import Loading from "../../layout/Loading";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -42,7 +42,17 @@ const Header = () => {
               <ul
                 tabIndex={0}
                 className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-              >       
+              >
+                <li>
+                  <NavLink
+                    to="/"
+                    className={({ isActive, isPending }) =>
+                      isActive ? "font-bold decoration-stone-950" : ""
+                    }
+                  >
+                    Home
+                  </NavLink>
+                </li>
                 <li>
                   <NavLink
                     to="/blog"
@@ -75,7 +85,6 @@ const Header = () => {
                   Home
                 </NavLink>
               </li>
-              
               <li>
                 <NavLink
                   to="/blog"
@@ -92,11 +101,7 @@ const Header = () => {
             {user ? (
               /* profile picture start */
               <div className="dropdown dropdown-end">
-                <div
-                  data-tooltip-id="my-tooltip"
-                  data-tooltip-content={user?.displayName || ""}
-                  className="m-0 p-0"
-                >
+                <Tooltip title="Hello, User!">
                   <label
                     tabIndex={0}
                     className="btn btn-ghost btn-circle avatar"
@@ -110,12 +115,12 @@ const Header = () => {
                       />
                     </div>
                   </label>
-                </div>
+                </Tooltip>
                 <ul
                   tabIndex={0}
                   className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                 {/*  <li>
+                  {/* <li>
                     <Link to="/user-profile">Profile</Link>
                   </li> */}
                   <li>
@@ -127,14 +132,13 @@ const Header = () => {
               /* profile picture end */
               <>
                 <Link to="/access/login" className="btn btn-ghost px-5 py-0">
-                  login
+                  Login
                 </Link>
               </>
             )}
           </div>
         </div>
       </div>
-      <Tooltip style={{textAlign:'right', marginRight:'150px'}} id="my-tooltip" />
     </>
   );
 };

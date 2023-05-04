@@ -1,7 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { createContext } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import app from '../firebase/firebase.config';
+import React, { useEffect, useState } from "react";
+import { createContext } from "react";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
+import app from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -13,51 +23,48 @@ const AuthProviders = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
-    
-    return createUserWithEmailAndPassword(auth, email, password)
-  }
+    return createUserWithEmailAndPassword(auth, email, password, {
+      signIn: false,
+    });
+  };
 
   const updateUserProfile = (name, pURL) => {
     updateProfile(auth.currentUser, {
       displayName: `${name}`,
-      photoURL: `${pURL}`
+      photoURL: `${pURL}`,
     })
-      .then(() => {
-        console.log('profile updated');
-      })
-      .catch(error => {
-        console.log(error);
-      })
+      .then(() => {})
+      .catch((error) => {});
   };
 
   const emailSingIn = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password)
-  }
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
   const googleSignIn = () => {
     setLoading(true);
-    return signInWithPopup(auth, googleProvider)
-  }
+    return signInWithPopup(auth, googleProvider);
+  };
 
   const gitHubSignIn = () => {
     setLoading(true);
-    return signInWithPopup(auth, gitHubProvider)
-  }
+    return signInWithPopup(auth, gitHubProvider);
+  };
 
   const logOut = () => {
     setLoading(true);
-    return signOut(auth)
-  }
+    return signOut(auth);
+  };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, loggedUser => {
+    const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
       setUser(loggedUser);
       setLoading(false);
-    })
+    });
     return () => {
       unsubscribe();
-    }
-  }, [])
+    };
+  }, []);
 
   const authInfo = {
     user,
@@ -67,13 +74,11 @@ const AuthProviders = ({ children }) => {
     emailSingIn,
     googleSignIn,
     gitHubSignIn,
-    logOut
+    logOut,
   };
 
   return (
-    <AuthContext.Provider value={authInfo}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 

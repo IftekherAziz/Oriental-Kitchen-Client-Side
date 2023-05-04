@@ -1,43 +1,57 @@
-import React, { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useContext, useState} from "react";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const Register = () => {
-  const { createUser, updateUserProfile, googleSignIn, gitHubSignIn } =
-    useContext(AuthContext);
-
+  const {
+    user,
+    createUser,
+    updateUserProfile,
+    googleSignIn,
+    gitHubSignIn,
+    logOut,
+  } = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleRegister = (event) => {
     event.preventDefault();
-    const form = event.target;
 
+    const form = event.target;
     const name = form.name.value;
-    const pURL = form.photoURL.value;
+    const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
+
+    if (password.length < 6) {
+      setErrorMessage("Password should be at least 6 characters");
+      return;
+    } else if (!/(?=.*[A-Z])/.test(password)) {
+      setErrorMessage("Use at least one Uppercase in password");
+      return;
+    } else if (!/(?=.*[0-9])/.test(password)) {
+      setErrorMessage("Use at least one number in password");
+      return;
+    }
 
     createUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        form.reset();
-        navigate(from, { replace: true });
+        updateUserProfile(name, photoURL);
+        logOut();
+        navigate("/access/login", { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        // form.reset()
+        setErrorMessage(error.message);
       });
-
-    updateUserProfile(name, pURL);
   };
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         const loggedUser = result.user;
-        navigate(from, { replace: true });
-        console.log(loggedUser);
+        navigate("/", { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -48,8 +62,7 @@ const Register = () => {
     gitHubSignIn()
       .then((result) => {
         const loggedUser = result.user;
-        navigate(from, { replace: true });
-        console.log(loggedUser);
+        navigate("/", { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -125,9 +138,29 @@ const Register = () => {
                 />
               </div>
             </div>
-            {/*  <a href="#" className="text-xs text-purple-600 hover:underline">
-                Forget Password?
-              </a> */}
+            {errorMessage && (
+              <div className="border border-red-400 rounded-lg w-2/3 mx-auto text text-red-600 m-2 ">
+                {errorMessage.slice(0, 9) === "Firebase:" ? (
+                  errorMessage ===
+                  "Firebase: Error (auth/email-already-in-use)." ? (
+                    <p>Email already used</p>
+                  ) : errorMessage ===
+                    "Firebase: Error (auth/invalid-email)." ? (
+                    <p>Email is not formatted correctly</p>
+                  ) : errorMessage ===
+                    "Firebase: Error (auth/too-many-requests)." ? (
+                    <p>Too many attempts, try again later</p>
+                  ) : (
+                    <p>
+                      'There was an error while trying to create your account.
+                      Please try again later.'
+                    </p>
+                  )
+                ) : (
+                  <p>{errorMessage}</p>
+                )}
+              </div>
+            )}
             <div className="flex items-center mt-4">
               <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-nlue-600">
                 Register

@@ -1,13 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
-
 
 const Login = () => {
   const { emailSingIn, googleSignIn, gitHubSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        setErrorMessage(error.message);
       });
   };
 
@@ -34,7 +34,7 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        setErrorMessage(error);
       });
   };
 
@@ -45,7 +45,7 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
-        console.log(error);
+        setErrorMessage(error);
       });
   };
 
@@ -57,34 +57,40 @@ const Login = () => {
         </h1>
         <form onSubmit={handleLogin} className="mt-6">
           <div className="mb-2">
-            <label
-              for="email"
-              className="block text-sm font-semibold text-gray-800"
-            >
+            <label className="block text-sm font-semibold text-gray-800">
               Email
             </label>
             <input
               type="email"
+              name="email"
               className="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
               required
             />
           </div>
           <div className="mb-2">
-            <label
-              for="password"
-              className="block text-sm font-semibold text-gray-800"
-            >
+            <label className="block text-sm font-semibold text-gray-800">
               Password
             </label>
             <input
               type="password"
+              name="password"
               className="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
               required
             />
           </div>
-          {/* <a href="#" className="text-xs text-purple-600 hover:underline">
-            Forget Password?
-          </a> */}
+          {errorMessage && (
+            <div className="border border-blue-600 rounded-lg w-2/3 mx-auto text text-red-600 m-2 ">
+              {!errorMessage ? (
+                ""
+              ) : errorMessage === "Firebase: Error (auth/wrong-password)." ? (
+                <p>Wrong password. Please try again.</p>
+              ) : errorMessage === "Firebase: Error (auth/user-not-found)." ? (
+                <p>User not found. Please check your email and try again.</p>
+              ) : (
+                <p>'An error occurred. Please try again later.'</p>
+              )}
+            </div>
+          )}        
           <div className="mt-6">
             <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-purple-600">
               Login
